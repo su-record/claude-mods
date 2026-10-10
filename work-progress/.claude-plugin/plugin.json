@@ -1,0 +1,6 @@
+{
+  "name": "work-progress",
+  "version": "0.2.0",
+  "description": "사이드 패널에 진행 중인 작업·계획·스텝·서브에이전트를 보여주고, 코드를 고친 뒤 검증 없이 끝나면 경고한다",
+  "types": "./types/index.d.ts"
+}
