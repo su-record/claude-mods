@@ -1,6 +1,0 @@
-{
-  "name": "vibe-status",
-  "version": "0.1.0",
-  "description": "Shows the project's vibe state above the prompt: state, stage, scenario counts and open questions.",
-  "types": "./types/index.d.ts"
-}

@@ -1,17 +1,14 @@
 {
   "name": "su-record-mods",
-  "description": "Personal Claude Code mods: work progress pane and vibe state band",
-  "owner": { "name": "su-record" },
+  "description": "Personal Claude Code mods: work progress pane with a vibe state band and one-press check",
+  "owner": {
+    "name": "su-record"
+  },
   "plugins": [
     {
       "name": "work-progress",
       "source": "./work-progress",
-      "description": "사이드 패널에 진행 중인 작업·계획·스텝·서브에이전트를 보여주고, 코드를 고친 뒤 검증 없이 끝나면 경고한다"
-    },
-    {
-      "name": "vibe-status",
-      "source": "./vibe-status",
-      "description": "Shows the current vibe state as a band above the prompt"
+      "description": "사이드 패널에 진행 중인 작업·계획·스텝·서브에이전트를 보여주고, 코드를 고친 뒤 검증 없이 끝나면 경고하며, vibe 상태를 보여주고 검사를 돌린다"
     }
   ]
 }

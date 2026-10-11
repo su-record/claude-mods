@@ -52,6 +52,37 @@ export type Report = {
   command: string
 }
 
+/** `vibe state --json`에서 읽은 프로젝트 상태 */
+export type VibeSnapshot = {
+  state: string
+  stage: string
+  /** vibe가 알려주는 다음 단계, 없으면 빈 문자열 */
+  next: string
+  scenarios: { id: string; last: string }[]
+  /** 답을 기다리는 질문 수 */
+  inboxOpen: number
+}
+
+export type CheckOutcome = {
+  id: string
+  /** pass · fail · handoff · stale 등 vibe가 쓰는 값 그대로 */
+  status: string
+  ms: number
+  reason: string
+}
+
+/** 패널의 검사 버튼으로 돌린 `vibe check --all` 한 번 */
+export type CheckRun = {
+  /** blocked: 동의가 없거나 시간이 넘어 검사를 돌리지 못함 */
+  status: 'running' | 'done' | 'blocked'
+  startedAt: number
+  endedAt?: number
+  passed: number
+  failed: number
+  outcomes: CheckOutcome[]
+  message: string
+}
+
 declare module 'claude-code' {
   interface PluginState {
     'work-progress': {
@@ -64,6 +95,10 @@ declare module 'claude-code' {
       evidence: Report | null
       /** 입력창 위 경고 줄을 숨겼는지 */
       evidenceHidden: boolean
+      /** vibe가 추적하지 않는 폴더면 null */
+      vibe: VibeSnapshot | null
+      vibeHidden: boolean
+      check: CheckRun | null
     }
   }
 }
